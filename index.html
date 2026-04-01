@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href= "src/style.css" >
+     <script type="module" src="/src/main.js" defer></script>
+    <title>package.json</title>
+  </head>
+  <body>
+
+    <div class = header >
+    <header>Que Faire à Paris</header>
+      </div>
+
+    <div class = "search-wrapper">
+      <label for="Search">Thème</label>
+      <input type="search" id="search" data-search placeholder="Cherchez par thème">
+    </div>
+
+    <div id="noResultsMessage" class="hide">
+  Cannot be found.
+</div>
+
+    <div class = "activity-cards" data-activity-cards-container></div>
+      <template data-activity-template>
+      <div class ="card">
+      <div class = "title" data-title></div>
+      <div class ="event-type" data-event-type></div>
+      <div class = "address" data-address></div>
+      <img class="image" data-image src="" alt="" />
+      <div class = "lead-text" data-lead-text></div>
+      <div class = "description" data-description></div>
+      
+    </div>
+    </template>
+     
+
+    <div id="app"></div>
+  </body>
+</html>

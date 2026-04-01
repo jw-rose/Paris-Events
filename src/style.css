@@ -1,0 +1,257 @@
+* {
+
+  font-family: "Figtree", sans-serif;
+}
+
+body {
+  background-color: #232946; /* slate blue */
+  
+}
+
+.header {
+  font-size: 40px;
+  color: #f0a500; /* gold */
+  text-align: center;
+  animation: glow 1s ease-in-out infinite alternate;
+  font-family: monospace;
+}
+
+@-webkit-keyframes glow {
+  from {
+    text-shadow: 
+      0 0 10px #f0a500, 
+      0 0 20px #f0a500, 
+      0 0 30px #232946, 
+      0 0 40px #f0a500, 
+      0 0 50px #f0a500, 
+      0 0 60px #232946, 
+      0 0 70px #f0a500;
+  }
+  
+  to {
+    text-shadow: 
+      0 0 15px #f0a500, 
+      0 0 25px #f0a500, 
+      0 0 35px #232946, 
+      0 0 45px #f0a500, 
+      0 0 55px #f0a500, 
+      0 0 65px #232946, 
+      0 0 75px #f0a500;
+  }
+}
+
+
+
+
+.search-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  gap: .25rem;
+  margin-top: 2rem;
+  width: 20%;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.search-wrapper label {
+  font-size: 1rem;             /* readable size */
+  font-weight: bold;           /* makes it stand out */
+  color: #f0a500;              /* gold text to match theme */
+}
+
+#search {
+  width: 100%;               /* full width of its container */
+  padding: 10px 20px;  
+  align-content: center;      /* comfortable spacing inside */
+  font-size: 1rem;           /* readable text */
+  border-radius: 25px;       /* rounded edges */
+  border: 2px solid #f0a500; /* gold border to match theme */
+  background-color: #2a2f4a; /* same as card background for harmony */
+  color: #f0a500;            /* gold text */
+  outline: none;             /* remove default outline */
+  transition: all 0.3s ease; /* smooth focus transition */
+}
+
+#search::placeholder {
+  color: #d4af37;            /* softer gold for placeholder */
+  opacity: 1;                /* ensure it’s readable */
+}
+
+#search:focus {
+  border-color: #e1b23a;     /* richer gold on focus */
+  box-shadow: 0 0 8px #e1b23a; /* subtle glow effect on focus */
+  background-color: #30365c;  /* slightly darker background for focus */
+}
+
+
+#noResultsMessage {
+  margin-top: 1rem;
+  padding: 1rem 1.5rem;
+  background-color: #2a2f4a;   /* same dark card background */
+  color: #f0a500;              /* gold text */
+  font-size: 1.2rem;           /* bigger text */
+  font-weight: bold;           /* stronger emphasis */
+  border: 2px solid #f0a500;   /* gold border */
+  border-radius: 15px;         /* smooth rounded corners */
+  text-align: center;          /* center the message */
+  width: fit-content;          /* shrink to content */
+  margin-left: auto;           /* center horizontally */
+  margin-right: auto;          /* center horizontally */
+  transition: opacity 0.3s ease;
+}
+
+.hide {
+  display: none;
+}
+
+.activity-cards {
+  width: 100%;
+  overflow-x: auto;
+  margin: 1.5em;
+  display: flex;
+  gap: 2.5em;
+  margin-top: 0.5rem;
+  scroll-behavior: smooth;
+  anchor-name: --carousel;
+  scroll-snap-type: x mandatory;
+  scroll-marker-group: after;
+}
+
+.activity-cards::scroll-marker-group {
+  display: flex;
+  justify-content: center;
+  gap: 0.5em;
+}
+
+.card::scroll-marker {
+  content: '';
+  height: 1em;
+  width: 1em;
+  background-color: #f0a500; /* gold */
+  border-radius: 50%;
+  transform: translateY(-20px);
+}
+
+.card::scroll-marker:target-current {
+  background-color: #232946; /* slate blue */
+}
+
+.activity-cards::-webkit-scrollbar {
+  display: none;
+}
+
+.activity-cards::scroll-button(right), .activity-cards::scroll-button(left) {
+  content: '→';
+  border: none;
+  background-color: #f0a500; /* gold */
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 3rem;
+  color: #232946; /* slate blue */
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  padding-bottom: .1em;
+  cursor: pointer;
+  position: fixed;
+  position-anchor: --carousel;
+  position-area: right center;
+  translate: -125%;
+}
+
+.activity-cards::scroll-button(left) {
+  content: '←';
+  position-area: left center;
+  translate: 70%;
+}
+
+.activity-cards::scroll-button(right):disabled, .activity-cards::scroll-button(left):disabled {
+  opacity: 0.5;
+  cursor: auto;
+} 
+
+.card {
+  scroll-snap-align: start;
+  flex: 0 0 20em;
+  aspect-ratio: 5 / 3;
+  background-color: #2a2f4a; /* muted blue-gray */
+  padding: .6em; 
+  margin-top: 0.5rem;
+  text-align: center;
+  align-content: center;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #f0a500; /* gold text */
+  border-radius: 25px;
+  border: 2px solid #f0a500; /* gold border */
+}
+
+@media(max-width: 500px) {
+  .card {
+    flex: 0 0 100%;
+  }
+}
+
+.card > .Title {
+  margin-bottom: .50rem;
+}
+
+.title {
+  font-weight: bold;
+}
+
+.lead-text {
+  font-weight: bold;
+}
+
+.card > .address {
+  font-size: .8rem;
+  color: #d4af37; /* softer gold for secondary text */
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
+
+.hide {
+  display: none;
+}
+
+.image {
+  width: 400px;
+  height: 300px;
+  border-radius: 20px;
+}
+
+.btn-details {
+  background-color: #f0a500; /* gold button */
+  color: #232946; /* slate blue text */
+  width: 100px;             
+  height: 40px;             
+  border: none;             
+  border-radius: 5px;       
+  cursor: pointer;          
+  font-weight: bold;        
+  transition: cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.btn-details:hover {
+  background-color: #e1b23a; /* richer gold on hover */
+}
+
+
+.card.flip-card {
+  perspective: 1000px;
+  padding: 0;
+  border: none; /* flip card handles its own border */
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  border-radius: 20px;
+  border: 2px solid #f0a500; /* gold border */
+  overflow: hidden;
+}
+
+
